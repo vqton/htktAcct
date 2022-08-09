@@ -31,10 +31,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar">
             <div class="navbar-nav">
-                <a class="nav-item  nav-link" id="login" href="/login">Login</a>
-                <a class="nav-item  nav-link" id="signUp" href="/sign-up">Sign up</a>
+                {% if user.is_authenticaed %}
                 <a class="nav-item  nav-link" id="logout" href="/logout">Logout</a>
                 <a class="nav-item  nav-link" id="home" href="/">Home</a>
+                {% else %}
+                <a class="nav-item  nav-link" id="login" href="/login">Login</a>
+                <a class="nav-item  nav-link" id="signUp" href="/sign-up">Sign up</a>
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -65,6 +68,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/popper.js@1.16.1-lts/dist/umd/popper.min.js"></script>
+
+    <script src="{{url_for('static',filename='index.js')}}"></script>
 </body>
 
 </html>

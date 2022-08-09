@@ -5,5 +5,22 @@ Home page
 {% endblock %}
 
 {% block content %}
-<h1 class="text-center">This is home page</h1>
+<h1 align="center">Notes</h1>
+<ul class="list-group list-group-flash" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item">{{ note.data }}
+        <button class="close" type="button" onClick="deleteNote({{ note.id }})">
+            <span aria-hidden="true">&times;</span></button>
+
+    </li>
+    {% endfor %}
+
+</ul>
+<form method="post">
+    <textarea class="form-control" name="note" id="note" cols="30" rows="10"></textarea>
+    <br />
+    <div align="center">
+        <button class="btn btn-primary" type="submit">Add Note </button>
+    </div>
+</form>
 {% endblock %}
