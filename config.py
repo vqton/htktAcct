@@ -1,3 +1,0 @@
-class Congfig:
-    DEBUG = True
-    
